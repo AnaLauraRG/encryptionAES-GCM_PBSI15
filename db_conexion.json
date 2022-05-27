@@ -1,5 +1,11 @@
 {
-	"name" : "Jhon Connor",
-	"diagnosis" : "Heridas por ataque de T-800",
-	"treatment" : "Paracetamol cada 8 hrs"
+	"dataBase": [
+		{
+			"user":"cripto",
+    		"password":"mypassword",
+    		"host":"127.0.0.1",
+    		"port":"3306",
+   	 		"database":"hospital"
+   	 	}
+   	 ]
 }
