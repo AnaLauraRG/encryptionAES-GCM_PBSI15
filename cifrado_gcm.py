@@ -3,6 +3,8 @@
 
 from Crypto.Cipher import AES
 import binascii, os
+import pyaes, pbkdf2, binascii, os, secrets, base64, mysql.connector, SecureString
+import json
 
 def encrypt_AES_GCM(msg, secretKey):
     aesCipher = AES.new(secretKey, AES.MODE_GCM)
@@ -14,6 +16,20 @@ def decrypt_AES_GCM(encryptedMsg, secretKey):
     aesCipher = AES.new(secretKey, AES.MODE_GCM, nonce)
     plaintext = aesCipher.decrypt_and_verify(ciphertext, authTag)
     return plaintext
+
+def conexion_db():
+    db=[]
+    with open('db_conexion.json') as file:
+        data=json.load(file)
+
+        for conexion in data['dataBase']:
+            print('Base de datos: ', conexion['database'])
+            db.append(conexion.append['user'])
+            db.append(conexion.append['password'])
+            db.append(conexion.append['host'])
+            db.append(conexion.append['port'])
+            db.append(conexion['database'])
+    return db
 
 #Main
 
